@@ -1,0 +1,12 @@
+OAuth:
+------
+Summarized from http://blog.varonis.com/introduction-to-oauth/
+cawoodm wants pageX to post to google
+cawoodm clicks a link on pageX
+pageX asks google for access to cawoodm's profile to post
+google says: here's a token and a secret which cawoodm can use to confirm
+pageX redirects cawoodm to a google page and google says: "do you want to let pageX post to google?
+cawoodm logs in to confirm
+google remembers the token and secret that authorizes pageX
+
+OAuth 2 adds token expiry, enforces SSL and no longer requires signing
