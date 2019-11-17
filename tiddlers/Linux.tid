@@ -1,43 +1,45 @@
-Keyboard Layout
-echo keycode 41 = p | loadkeys 
-1. One-time: setxkbmap ch
-2. SLAX loadkeys ch_DE
-3. /etc/conf KEYMAP="sg-latin1.map.gz" or KEYMAP="de_CH-latin1.map.gz"
-4. Permanent: sudo nano /etc/X11/xorg.conf
-    Option  	"XkbLayout" "ch"
-    Option  	"XkbVariant" "de"
-    104
-5. keys=sg in GRUB
-6. Sudo vi /etc/default/keyboard (XLAYOUT ch; XVARIANT de)
+created: 20191117142004767
+modified: 20191117145648717
+tags: 
+title: Linux
+type: text/vnd.tiddlywiki
 
-Map “section/degree” key to “p”
-xmodmap -e "keycode 49 = P"
+!  Keyboard Layout
 
-Autocompletion
-Nano ~/.inputrc
-"\t": menu-complete
-"\e[Z": menu-complete-backward
-"\e[1~": beginning-of-line
-"\e[4~": end-of-line
+* `echo keycode 41 = p | loadkeys`
+* One-time: `setxkbmap ch`
+* SLAX `loadkeys ch_DE`
+* `nano /etc/conf* `
+** `KEYMAP="sg-latin1.map.gz"* ` or `KEYMAP="de_CH-latin1.map.gz"`
+* Permanent: `sudo nano /etc/X11/xorg.conf`:
+** `   Option  	"XkbLayout" "ch"`
+** `    Option  	"XkbVariant" "de"`
+* `keys=sg` in GRUB
+* `sudo vi /etc/default/keyboard`
+** `(XLAYOUT ch; XVARIANT de)`
+* Map “section/degree” key to “p”
+** `xmodmap -e "keycode 49 = P"`
 
-Mounting Hard Drive (SDD)
-pmount OR mount /dev/sda1 /mnt/sda1
-Unmount:
-umount /dev/sda1
-Mount Windows Drive:
-mkdir /mnt/ntfs
-mount -t ntfs /dev/sda1 /mnt/ntfs
-Auto-Mounted Volumns: /etc/fstab http://www.tuxfiles.org/linuxhelp/fstab.html
-Mounting an ISO
-dd if=my.iso of=/dev/sdb
-http://askubuntu.com/questions/134545/how-to-get-unetbootin-to-recognize-mounted-usb-drive
-Fixing a Partition
-ntfsfix /dev/sda2
-http://itknowledgeexchange.techtarget.com/security-admin/dual-booting-linux-and-windows-7-the-0xc0000225-error/
+!! Autocompletion
 
-Free Space
-df -h
-Partitioning
+* `nano ~/.inputrc`
+* `"\t"`: menu-complete
+* `"\e[Z"`: menu-complete-backward
+* `"\e[1~"`: beginning-of-line
+* `"\e[4~"`: end-of-line
+
+!! Mounting Hard Drive (SDD)
+
+* `pmount OR mount /dev/sda1 /mnt/sda1`
+* Unmount: `umount /dev/sda1`
+* Mount Windows Drive: `mkdir /mnt/ntfs` `mount -t ntfs /dev/sda1 /mnt/ntfs`
+* Auto-Mounted Volumns: `/etc/fstab` http://www.tuxfiles.org/linuxhelp/fstab.html
+* Mounting an ISO: `dd if=my.iso of=/dev/sdb`
+* Fixing a Partition: `ntfsfix /dev/sda2`
+* Free Space: `df -h`
+
+!! Partitioning
+
 1. gparted (needs perl)
 2. cfdisk /dev/sdb (USB) or cfdisk /dev/sda (SDD)
 3. fdisk -l (view existing partitions)
